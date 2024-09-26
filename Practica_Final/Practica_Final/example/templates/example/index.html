@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Practice Hybrid Cryptography</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="static/escom.png">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel='stylesheet'
+        href='https://cdnjs.cloudflare.com/ajax/libs/overlayscrollbars/1.9.1/css/OverlayScrollbars.min.css'>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <!-- Bulma Version 0.9.0-->
+    <link rel="stylesheet" href="https://unpkg.com/bulma@0.9.0/css/bulma.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8/dist/sweetalert2.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@8/dist/sweetalert2.min.css" id="theme-styles">
+    <script src="https://code.jquery.com/jquery-2.2.4.js"
+        integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI=" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <!-- START NAV -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-brand">
+                <a class="navbar-item">
+                    <img src="static/escom.png" alt="Logo">
+                </a>
+                <span class="navbar-burger burger" data-target="navbarMenu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </span>
+            </div>
+            <div id="navbarMenu" class="navbar-menu">
+                <div class="navbar-end">
+
+                    <a class="navbar-item is-active">
+                        Home
+                    </a>
+                    <a class="navbar-item" href="hybrid_crypto/">
+                        Hybrid Cryptography
+                    </a>
+                    <!--
+                    <div class="navbar-item has-dropdown is-hoverable">
+                        <a class="navbar-link">
+                                Account
+                            </a>
+                        <div class="navbar-dropdown">
+                            <a class="navbar-item">
+                                    Dashboard
+                                </a>
+                            <a class="navbar-item">
+                                    Profile
+                                </a>
+                            <a class="navbar-item">
+                                    Settings
+                                </a>
+                            <hr class="navbar-divider">
+                            <div class="navbar-item">
+                                Logout
+                            </div>
+                    -->
+                </div>
+            </div>
+        </div>
+        </div>
+        </div>
+    </nav>
+    <!-- END NAV -->
+
+    <section class="hero is-info is-medium is-bold"
+        style="background-image:url('static/HomeBanner.jpg'); background-size: 100% 100%; ">
+        <div class="hero-body">
+            <div class="container has-text-centered">
+                <h1 class="title has-text-white">Hybrid Cryptography</h1>
+            </div>
+        </div>
+    </section>
+
+
+    <div class="container">
+        <!-- START ARTICLE FEED -->
+        <section class="articles">
+            <div class="column is-8 is-offset-2">
+                <!-- START ARTICLE -->
+                <div class="card article">
+                    <div class="card-content">
+                        <div class="media">
+                            <div class="media-content has-text-centered">
+                                <p class="title article-title"> Hybrid Cryptography using AES & RSA</p>
+                                <div class="tags has-addons level-item">
+                                    <span class="tag is-rounded is-info">3CM15 - Team 2</span>
+                                    <span class="tag is-rounded">June 05, 2021</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="content article-body">
+                            <h3 class="has-text-left">Hybrid Cryptography</h3>
+                            <p>You can signature, validate, encrypt and decrypt or all in a text file using HASH & RSA.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <!-- END ARTICLE -->
+                <!-- START PROMO BLOCK -->
+                <section class="hero is-info is-bold is-small promo-block">
+                    <div class="hero-body">
+                        <div class="container">
+                            <div class="columns">
+                                <div class="column">
+                                    <span class="tag is-black is-medium is-rounded">
+                                       Student: Chacon Inostrosa Jaime Enrique
+                                    </span>
+                                </div>
+                                <div class="column">
+                                    <span class="tag is-black is-medium is-rounded">
+                                        Student: Ramirez Olvera Guillermo
+                                    </span>
+                                </div>
+                            </div>
+
+                            <div class="columns">
+                                <div class="column">
+                                    <span class="tag is-black is-medium is-rounded">
+                                        Student: Sanchez Mendez Edmundo Josue
+                                    </span>
+                                </div>
+                                <div class="column">
+                                    <span class="tag is-black is-medium is-rounded">
+                                        Teacher: Cortez Duarte Nidia Asunción
+                                    </span>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </section>
+                <!-- END PROMO BLOCK -->
+            </div>
+        </section>
+        <!-- END ARTICLE FEED -->
+    </div>
+    <script async type="text/javascript" src="https://bulmatemplates.github.io/bulma-templates/js/bulma.js"></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/overlayscrollbars/1.9.1/js/OverlayScrollbars.min.js'></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            //The first argument are the elements to which the plugin shall be initialized
+            //The second argument has to be at least a empty object or a object with your desired options
+            OverlayScrollbars(document.querySelectorAll("body"), {});
+        });
+
+        function generarLlaves(form) {
+            document.getElementById("formKeys").submit();
+
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            (document.querySelectorAll('.notification .delete') || []).forEach(($delete) => {
+                const $notification = $delete.parentNode;
+
+                $delete.addEventListener('click', () => {
+                    $notification.parentNode.removeChild($notification);
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

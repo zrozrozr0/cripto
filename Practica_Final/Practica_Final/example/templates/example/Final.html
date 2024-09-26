@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Practice Hybrid Cryptography</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="../static/escom.png">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel='stylesheet'
+        href='https://cdnjs.cloudflare.com/ajax/libs/overlayscrollbars/1.9.1/css/OverlayScrollbars.min.css'>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <!-- Bulma Version 0.9.0-->
+    <link rel="stylesheet" href="https://unpkg.com/bulma@0.9.0/css/bulma.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8/dist/sweetalert2.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@8/dist/sweetalert2.min.css" id="theme-styles">
+    <script src="https://code.jquery.com/jquery-2.2.4.js"
+        integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI=" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/6cff7f6120.js" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+</head>
+
+<body>
+    <!-- START NAV -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-brand">
+                <a class="navbar-item">
+                    <img src="../static/escom.png" alt="Logo">
+                </a>
+                <span class="navbar-burger burger" data-target="navbarMenu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </span>
+            </div>
+            <div id="navbarMenu" class="navbar-menu">
+                <div class="navbar-end">
+
+                    <a class="navbar-item" href="../">
+                        Home
+                    </a>
+                    <a class="navbar-item is-active">
+                        Hybrid Cryptography
+                    </a>
+                    <!--
+                        <a class="navbar-item">
+                            Features
+                        </a>
+                    <a class="navbar-item">
+                            Team
+                        </a>
+                    <a class="navbar-item">
+                            Archives
+                        </a>
+                    <a class="navbar-item">
+                            Help
+                        </a>
+                    <div class="navbar-item has-dropdown is-hoverable">
+                        <a class="navbar-link">
+                                Account
+                            </a>
+                        <div class="navbar-dropdown">
+                            <a class="navbar-item">
+                                    Dashboard
+                                </a>
+                            <a class="navbar-item">
+                                    Profile
+                                </a>
+                            <a class="navbar-item">
+                                    Settings
+                                </a>
+                            <hr class="navbar-divider">
+                            <div class="navbar-item">
+                                Logout
+                            </div>
+                    -->
+
+                </div>
+            </div>
+        </div>
+        </div>
+        </div>
+    </nav>
+    <!-- END NAV -->
+
+    <section class="hero is-info is-medium is-bold"
+        style="background-image:url('../static/HomeBanner.jpg'); background-size: 100% 100%; ">
+        <div class="hero-body">
+            <div class="container has-text-centered">
+                <h1 class="title  has-text-white">Hybrid Cryptography</h1>
+            </div>
+        </div>
+    </section>
+
+
+    <div class="container">
+        <!-- START ARTICLE FEED -->
+        <section class="articles">
+            <div class="column is-8 is-offset-2">
+
+                <!-- START ARTICLE -->
+                <div class="card article">
+                    <div class="card-content">
+                        <div class="media">
+                            <div class="media-content has-text-centered">
+                                <p class="title article-title">Encryption or signature an text file</p>
+                            </div>
+                        </div>
+
+                        <div class="content article-body">
+                            <h3 class="has-text-left">First step.- Choose options
+                            </h3>
+                            <div>
+                                <label class="checkbox">
+                                    <input id="is_cifrado" type="checkbox" onclick="addFileC();">
+                                    Cypher
+                                </label>
+                                <label class="checkbox">
+                                    <input id="is_sing" type="checkbox" onclick="addFileS();">
+                                    Sign
+                                </label>
+                            </div>
+                            <h3 class="has-text-left">Second step.- Choose an .txt file from your computer
+                            </h3>
+                            <div class="file has-name">
+                                <label class="file-label">
+                                    <input class="file-input" accept="text/plain" id="file-upload" type="file"
+                                        name="resume">
+                                    <span class="file-cta">
+                                        <span class="file-icon">
+                                            <i class="fas fa-upload"></i>
+                                        </span>
+                                        <span class="file-label">
+                                            Choose an txt file…
+                                        </span>
+                                    </span>
+                                    <span for="file-upload" id="file-upload-filename" class="file-name">
+                                    </span>
+                                </label>
+                            </div>
+                            <h3 class="has-text-left">Third step.- Choose specific files
+                            </h3>
+                            <div id="llavePriv_f" style="display:none">
+                                <h5 class="has-text-left">Private key
+                                </h5>
+                                <div class="file has-name">
+                                    <label class="file-label">
+                                        <input class="file-input" id="file-upload_pk" type="file" name="resume">
+                                        <span class="file-cta">
+                                            <span class="file-icon">
+                                                <i class="fas fa-upload"></i>
+                                            </span>
+                                            <span class="file-label">
+                                                Choose an pem file…
+                                            </span>
+                                        </span>
+                                        <span for="file-upload" id="file-upload-filename_pk" class="file-name">
+                                        </span>
+                                    </label>
+                                </div>
+                            </div>
+                            <div id="llabePub_f" style="display:none">
+                                <h5 class="has-text-left">Recipient's public key
+                                </h5>
+                                <div class="file has-name">
+                                    <label class="file-label">
+                                        <input class="file-input" id="file-upload_publick_f" type="file" name="resume">
+                                        <span class="file-cta">
+                                            <span class="file-icon">
+                                                <i class="fas fa-upload"></i>
+                                            </span>
+                                            <span class="file-label">
+                                                Choose an pem file…
+                                            </span>
+                                        </span>
+                                        <span for="file-upload" id="file-upload-filename_publick_f" class="file-name">
+                                        </span>
+                                    </label>
+                                </div>
+                            </div>
+                            <h3 class="has-text-left">Fourth step.- Start</h3>
+                            <p> Please click in the next button to start:</p>
+                            <form id="formCypher" onsubmit="return Firmar(this)">
+                                <input class="button is-info" type="submit" value="Start">
+                            </form>
+                            {% if messages %}
+                            <br />
+                            {% for message in messages %}
+                            {% if "Firma_txt" in message.extra_tags %}
+                            {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}
+                            <div class="notification is-danger">
+                                {% elif message.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
+                                <div class="notification is-success">
+                                    {% endif %}
+                                    <button class="delete"></button>
+                                    <strong>
+                                        <li{% if message.tags %} class="{{ message.tags }}" {% endif %}>
+                                            {{message.message}}
+                                            </li>
+                                    </strong>
+                                </div>
+                                {% endif %}
+                                {% endfor %}
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                    <!-- END ARTICLE -->
+
+                    <!-- START ARTICLE -->
+                    <div class=" card article">
+                        <div class="card-content">
+                            <div class="media">
+                                <div class="media-content has-text-centered">
+                                    <p class="title article-title">Decrypt/Validate a text file</p>
+                                </div>
+                            </div>
+
+                            <div class="content article-body">
+                                <h3 class="has-text-left">First step.- Choose options
+                                </h3>
+                                <div>
+                                    <label class="checkbox">
+                                        <input id="is_descifrado" type="checkbox" onclick="addFileC_s();">
+                                        Decrypt
+                                    </label>
+                                    <label class="checkbox">
+                                        <input id="is_val" type="checkbox" onclick="addFileS_s();">
+                                        Validate
+                                    </label>
+                                </div>
+                                <h3 class="has-text-left">Second step.- Choose a encrypted/signed text file from your
+                                    computer
+                                    to
+                                    validate
+                                </h3>
+                                <div class="file has-name">
+                                    <label class="file-label">
+                                        <input class="file-input" accept="text/plain" id="file-upload2" type="file"
+                                            name="resume">
+                                        <span class="file-cta">
+                                            <span class="file-icon">
+                                                <i class="fas fa-upload"></i>
+                                            </span>
+                                            <span class="file-label">
+                                                Choose an txt file…
+                                            </span>
+                                        </span>
+                                        <span for="file-upload" id="file-upload-filename2" class="file-name">
+                                        </span>
+                                    </label>
+                                </div>
+
+                                <h3 class="has-text-left">Third step.- Choose specific files
+                                </h3>
+                                <div id="llavePub_s" style="display:none">
+                                    <h5>Sender's public key</h5>
+                                    <div class="file has-name">
+                                        <label class="file-label">
+                                            <input class="file-input" id="file-upload2_pk" type="file" name="resume">
+                                            <span class="file-cta">
+                                                <span class="file-icon">
+                                                    <i class="fas fa-upload"></i>
+                                                </span>
+                                                <span class="file-label">
+                                                    Choose an pem file…
+                                                </span>
+                                            </span>
+                                            <span for="file-upload" id="file-upload-filename2_pk" class="file-name">
+                                            </span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div id="llavePriv_s" style="display:none">
+                                    <h5>Private key</h5>
+                                    <div class="file has-name">
+                                        <label class="file-label">
+                                            <input class="file-input" id="file-upload2_priv_k" type="file"
+                                                name="resume">
+                                            <span class="file-cta">
+                                                <span class="file-icon">
+                                                    <i class="fas fa-upload"></i>
+                                                </span>
+                                                <span class="file-label">
+                                                    Choose an pem file…
+                                                </span>
+                                            </span>
+                                            <span for="file-upload" id="file-upload-filename2_priv_pk"
+                                                class="file-name">
+                                            </span>
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <h3 class="has-text-left">Third step.- Validate</h3>
+                                <p> Please click in the next button to validate the signed file with the
+                                    <p>Public Key:</p>
+                                    <form id="formDecipher" onsubmit="return Validar(this)">
+                                        <input class="button is-info" type="submit" value="Let's go validate">
+                                    </form>
+                                    
+                                    {% if messages %}
+                                    <br />
+                                    {% for message in messages %}
+                                        {% if "Validate_txt" in message.extra_tags %}
+                                            {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}
+                                                <div class="notification is-danger">
+                                            {% elif message.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
+                                                <div class="notification is-success">
+                                            {% endif %}
+                                                    <button class="delete"></button>
+                                                    <strong>
+                                                        <li{% if message.tags %} class="{{ message.tags }}" {% endif %}>
+                                                            {{message.message}}
+                                                        </li>
+                                                    </strong>
+                                                </div>
+                                        {% endif %}
+                                    {% endfor %}
+                                    {% endif %}
+                                    </div>
+                            </div>
+                        </div>
+                        <!-- END ARTICLE -->
+
+                        <!-- START PROMO BLOCK -->
+                        <section class=" hero is-info is-bold is-small promo-block">
+                            <div class="hero-body">
+                                <div class="container">
+                                    <div class="columns">
+                                        <div class="column">
+                                            <span class="tag is-black is-medium is-rounded">
+                                                Student: Chacon Inostrosa Jaime Enrique
+                                            </span>
+                                        </div>
+                                        <div class="column">
+                                            <span class="tag is-black is-medium is-rounded">
+                                                Student: Ramirez Olvera Guillermo
+                                            </span>
+                                        </div>
+                                    </div>
+
+                                    <div class="columns">
+                                        <div class="column">
+                                            <span class="tag is-black is-medium is-rounded">
+                                                Student: Sanchez Mendez Edmundo Josue
+                                            </span>
+                                        </div>
+                                        <div class="column">
+                                            <span class="tag is-black is-medium is-rounded">
+                                                Teacher: Cortez Duarte Nidia Asunción
+                                            </span>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </section>
+                        <!-- END PROMO BLOCK -->
+                    </div>
+        </section>
+        <!-- END ARTICLE FEED -->
+    </div>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/overlayscrollbars/1.9.1/js/OverlayScrollbars.min.js'></script>
+    <script async type="text/javascript" src="https://bulmatemplates.github.io/bulma-templates/js/bulma.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            //The first argument are the elements to which the plugin shall be initialized
+            //The second argument has to be at least a empty object or a object with your desired options
+            OverlayScrollbars(document.querySelectorAll("body"), {});
+        });
+
+        document.addEventListener('DOMContentLoaded', () => {
+            (document.querySelectorAll('.notification .delete') || []).forEach(($delete) => {
+                const $notification = $delete.parentNode;
+
+                $delete.addEventListener('click', () => {
+                    $notification.parentNode.removeChild($notification);
+                });
+            });
+        });
+
+        var input = document.getElementById('file-upload');
+        var infoArea = document.getElementById('file-upload-filename');
+        var privatek = document.getElementById('file-upload_pk');
+        var infoAreaPK = document.getElementById('file-upload-filename_pk');
+        var publick_f = document.getElementById('file-upload_publick_f');
+        var infoAreaPubK_f = document.getElementById('file-upload-filename_publick_f');
+        input.addEventListener('change', showFileName);
+        privatek.addEventListener('change', showFileNamePK);
+        publick_f.addEventListener('change', showFileNamePubK_f);
+
+        function addFileS() {
+            var cifrado = document.getElementById("is_sing").checked;
+            if (cifrado)
+                document.getElementById("llavePriv_f").style.display = "block";
+            else
+                document.getElementById("llavePriv_f").style.display = "none";
+        }
+
+        function addFileC() {
+            var cifrado = document.getElementById("is_cifrado").checked;
+            if (cifrado)
+                document.getElementById("llabePub_f").style.display = "block";
+            else
+                document.getElementById("llabePub_f").style.display = "none";
+        }
+
+        function showFileName(event) {
+            var input = event.srcElement;
+            var fileName = input.files[0].name;
+            infoArea.textContent = fileName;
+        }
+
+        function showFileNamePK(event) {
+            var input = event.srcElement;
+            var fileName = input.files[0].name;
+            infoAreaPK.textContent = fileName;
+        }
+
+        function showFileNamePubK_f(event) {
+            var input = event.srcElement;
+            var fileName = input.files[0].name;
+            infoAreaPubK_f.textContent = fileName;
+        }
+
+        function Firmar(form) {
+            var cifrado = document.getElementById("is_cifrado").checked;
+            var firma = document.getElementById("is_sing").checked;
+            if (cifrado && firma) {
+                form.action = "../CS/" + infoArea.textContent + "/" + infoAreaPK.textContent + "/" + infoAreaPubK_f.textContent
+            } else {
+                if (cifrado) {
+                    form.action = "../CS/" + infoArea.textContent + "/" + infoAreaPK.textContent
+                } else if (firma) {
+                    form.action = "../Firmar/" + infoArea.textContent + "/" + infoAreaPK.textContent
+                }
+            }
+            return true
+        }
+
+        var input2 = document.getElementById('file-upload2');
+        var infoArea2 = document.getElementById('file-upload-filename2');
+        var publick = document.getElementById('file-upload2_pk');
+        var infoArea2PK = document.getElementById('file-upload-filename2_pk');
+        var privk_s = document.getElementById('file-upload2_priv_k');
+        var infoArea2PubK = document.getElementById('file-upload-filename2_priv_pk');
+        input2.addEventListener('change', showFileName2);
+        publick.addEventListener('change', showFileName2PK);
+        privk_s.addEventListener('change', showFileName2PK_s);
+        function addFileS_s() {
+            var valido = document.getElementById("is_val").checked;
+            if (valido)
+                document.getElementById("llavePub_s").style.display = "block";
+            else
+                document.getElementById("llavePub_s").style.display = "none";
+        }
+
+        function addFileC_s() {
+            var descifrado = document.getElementById("is_descifrado").checked;
+            if (descifrado)
+                document.getElementById("llavePriv_s").style.display = "block";
+            else
+                document.getElementById("llavePriv_s").style.display = "none";
+        }
+
+        function showFileName2(event) {
+            var input2 = event.srcElement;
+            var fileName = input2.files[0].name;
+            infoArea2.textContent = fileName;
+        }
+
+        function showFileName2PK(event) {
+            var input2 = event.srcElement;
+            var fileName = input2.files[0].name;
+            infoArea2PK.textContent = fileName;
+        }
+        function showFileName2PK_s(event) {
+            var input2 = event.srcElement;
+            var fileName = input2.files[0].name;
+            infoArea2PubK.textContent = fileName;
+        }
+        function Validar(form) {
+            var descifrado = document.getElementById("is_descifrado").checked;
+            var valido = document.getElementById("is_val").checked;
+            if (descifrado && valido) {
+                form.action = "../DV/" + infoArea2.textContent + "/" + infoArea2PK.textContent + "/" + infoArea2PubK.textContent
+            } else {
+                if (descifrado) {
+                    form.action = "../CS/" + infoArea.textContent + "/" + infoAreaPK.textContent
+                } else if (valido) {
+                    form.action = "../ValidateFile/" + infoArea2.textContent + "/" + infoArea2PK.textContent
+                }
+            }
+            return true
+        }
+
+    </script>
+</body>
+
+</html>
